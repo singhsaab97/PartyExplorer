@@ -35,7 +35,7 @@ struct CreatePartyView: View {
                 // Text field for entering the party price
                 TextField(Constants.price, text: $price)
                     .font(.system(size: 16))
-                    .keyboardType(.numberPad)
+                    .keyboardType(.decimalPad)
                     .focused($isTextFieldFocused)
                     .onAppear {
                         isTextFieldFocused = true
