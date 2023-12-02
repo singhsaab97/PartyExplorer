@@ -10,10 +10,20 @@ import Foundation
 struct Constants {
     
     // Text
-    static let navigationTitle = "Party Explorer"
+    static let partyExplorer = "Party Explorer"
+    static let scheduleParty = "Schedule Party"
     static let price = "Price"
     static let duration = "Duration"
     static let startDate = "Start Date"
+    static let endDate = "End Date (Optional)"
+    static let cancel = "Cancel"
+    static let done = "Done"
+    static let error = "Error"
+    static let priceEmptyMessage = "Enter a price for the party."
+    static let yay = "Yay!"
+    static let newPartyMessage = "You've scheduled a new party."
+    static let ok = "Okay"
+    static let great = "Great"
     
     // Image
     static let addImageName = "plus"
@@ -22,13 +32,25 @@ struct Constants {
     static let numberOfDefaultParties: Int = 3
     static let partyNames = [
         "Groove Gala",
-        "Fiesta Frenzy",
-        "Neon Nightlife",
-        "Disco Delight",
-        "Rhythm Rapture",
-        "Carnival Cascade",
-        "Sparkle Spectacle",
-        "Jamboree Jive"
+        "Celestial Soiree",
+        "Fiesta Fantastica",
+        "Epic Euphoria",
+        "Starry Night Shindig",
+        "Neon Nirvana",
+        "Dazzle Daze",
+        "Vivid Vogue",
+        "Retro Rendezvous",
+        "Electric Elegance",
+        "Moonlight Mirage",
+        "Funky Fusion Fiesta",
+        "Sizzle & Swing Soiree",
+        "Midnight Marvel",
+        "Glamour Glitz Gala",
+        "Safari Soiree",
+        "Whimsical Wonderland",
+        "Mystic Masquerade",
+        "Lunar Luminescence",
+        "Carnival Carousel"
     ]
     static let bannerUrlPaths = [
         "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg",

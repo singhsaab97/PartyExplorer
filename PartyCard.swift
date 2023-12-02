@@ -12,8 +12,22 @@ struct PartyCard: View {
         
     let party: Party
     
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+    private let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             AsyncImage(url: party.bannerUrl) { phase in
                 switch phase {
                 case let .success(image):
@@ -30,7 +44,10 @@ struct PartyCard: View {
             }
             
             VStack(spacing: 6) {
-                Text("\(Constants.price): $\(String(format: "%.2f", party.price))")
+                Text(party.name)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(Color.primary)
+                Text("\(Constants.price): $\(priceFormatter.string(from: party.price as NSNumber) ?? String(format: "%.2f", party.price))")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(Color.primary)
                 
@@ -39,7 +56,7 @@ struct PartyCard: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(Color.secondary)
                 } else {
-                    Text("\(Constants.startDate): \(formattedDate(party.startDate))")
+                    Text("\(Constants.startDate): \(dateFormatter.string(from: party.startDate))")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(Color.secondary)
                 }
@@ -56,19 +73,8 @@ struct PartyCard: View {
 // MARK: - Private Helpers
 private extension PartyCard {
     
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }
-    
-    func formattedDate(_ date: Date) -> String {
-        return dateFormatter.string(from: date)
-    }
-
     func formattedDateRange(_ startDate: Date, _ endDate: Date) -> String {
-        let formatter = dateFormatter
-        return "\(formatter.string(from: startDate)) - \(formatter.string(from: endDate))"
+        return "\(dateFormatter.string(from: startDate)) - \(dateFormatter.string(from: endDate))"
     }
     
 }

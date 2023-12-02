@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Party: Identifiable {
+struct Party: Identifiable,
+              Equatable {
     let id = UUID()
     let name: String
     let bannerUrl: URL
@@ -35,6 +36,19 @@ extension Party {
                 endDate: endDate
             )
         }
+    }
+    
+    static func create(with price: Double, startDate: Date, endDate: Date?) -> Party? {
+        guard let name = Constants.partyNames.randomElement(),
+              let bannerUrlPath = Constants.bannerUrlPaths.randomElement(),
+              let bannerUrl = URL(string: bannerUrlPath) else { return nil }
+        return Party(
+            name: name,
+            bannerUrl: bannerUrl,
+            price: price,
+            startDate: startDate,
+            endDate: endDate
+        )
     }
     
 }
