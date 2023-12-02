@@ -13,14 +13,20 @@ struct PartyListView: View {
     
     // Array of parties to display in the list
     let parties: [Party]
+    let searchText: String
     
     var body: some View {
-        List(parties) { party in
-            // Display each party using PartyCardView as a list row
-            PartyCardView(party: party)
-                .listRowSeparator(.hidden)
+        if parties.isEmpty {
+            // Display an empty view UI when search results are empty
+            EmptyPartiesView(searchText: searchText)
+        } else {
+            // Display the list of parties
+            List(parties) { party in
+                PartyCardView(party: party)
+                    .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
         }
-        .listStyle(.plain)
     }
     
 }

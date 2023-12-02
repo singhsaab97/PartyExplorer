@@ -25,7 +25,7 @@ struct ContentView: View {
             VStack {
                 // ScrollView to display the list of parties
                 ScrollViewReader { scrollView in
-                    PartyListView(parties: filteredParties)
+                    PartyListView(parties: filteredParties, searchText: searchText)
                         .onChange(of: newParty) { _ in
                             // Scroll to the bottom when a new party is added
                             if newParty == nil,

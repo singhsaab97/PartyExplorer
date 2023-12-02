@@ -24,9 +24,12 @@ struct Constants {
     static let newPartyMessage = "You've scheduled a new party."
     static let ok = "Okay"
     static let great = "Great"
+    static let emptySearchTitle = "Uh Oh!"
+    static let emptySearchMessage = "No parties found matching the search query"
     
     // Image
     static let addImageName = "plus"
+    static let searchImageName = "magnifyingglass"
     
     // Data
     static let numberOfDefaultParties: Int = 3
