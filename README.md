@@ -7,7 +7,6 @@ The Party Explorer app is a SwiftUI project that allows users to explore and cre
 - View a list of parties
 - Search parties by name
 - Create new parties
-- Receive notifications when a new party is added
 
 ## Getting Started
 
